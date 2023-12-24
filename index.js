@@ -13,7 +13,9 @@ app.get("/", (req, res) => {
 
 app.get("/scrap", async (req, res) => {
     const browser = await puppeteer.launch({
-        headless: "new"
+        headless: "new",
+        args: ["--disable-setuid-sandbox"],
+        'ignoreHTTPSErrors': true
     });
     const [page] = await browser.pages();
     const url = "https://www.google.com";
