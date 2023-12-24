@@ -13,6 +13,8 @@ app.get("/", (req, res) => {
 
 app.get("/scrap", async (req, res) => {
     const browser = await puppeteer.launch({
+        // executablePath: '/var/app/current/.cache/puppeteer/chrome/linux-119.0.6045.105/chrome-linux64/chrome',
+        executablePath: '/usr/bin/google-chrome-stable',
         headless: "new",
         args: ["--disable-setuid-sandbox"],
         'ignoreHTTPSErrors': true
